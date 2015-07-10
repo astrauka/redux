@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 import { SHOW_ALL, SHOW_MARKED, SHOW_UNMARKED } from '../constants/TodoFilters';
+import Some from './Some';
 
 const FILTER_TITLES = {
   [SHOW_ALL]: 'All',
@@ -19,17 +20,22 @@ export default class Footer {
 
   render() {
     return (
-      <footer className='footer'>
-        {this.renderTodoCount()}
-        <ul className='filters'>
-          {[SHOW_ALL, SHOW_UNMARKED, SHOW_MARKED].map(filter =>
-            <li key={filter}>
-              {this.renderFilterLink(filter)}
-            </li>
-          )}
-        </ul>
-        {this.renderClearButton()}
-      </footer>
+      <div>
+        <Some text='initial'/>
+        <Some text='success'/>
+        <Some text='failure'/>
+        <footer className='footer'>
+          {this.renderTodoCount()}
+          <ul className='filters'>
+            {[SHOW_ALL, SHOW_UNMARKED, SHOW_MARKED].map(filter =>
+              <li key={filter}>
+                {this.renderFilterLink(filter)}
+              </li>
+            )}
+          </ul>
+          {this.renderClearButton()}
+        </footer>
+      </div>
     );
   }
 
